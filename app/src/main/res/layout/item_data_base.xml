@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:strokeWidth="1dp"
+    app:strokeColor="#817A70"
+    android:elevation="10dp"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/tvDataName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Name"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvDataRealName"/>
+
+
+
+        <TextView
+            android:id="@+id/tvDataRealName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Real Name"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textStyle="italic"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvDataTeam"
+            app:layout_constraintStart_toEndOf="@id/tvDataName"/>
+
+        <TextView
+            android:id="@+id/tvDataTeam"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Avengers"
+            android:textColor="@color/black"
+            android:textStyle="italic"
+            android:gravity="center"
+            android:textSize="14sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvDataRealName"
+            app:layout_constraintEnd_toStartOf="@id/tvDataImageUrl"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvImgdatabase"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="10dp"
+            app:cardCornerRadius="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvDataTeam"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imgDatabase"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_launcher_background" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tvDataImageUrl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="image url"
+            android:textColor="@color/black"
+            android:textStyle="italic"
+            android:gravity="center"
+            android:textSize="14sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvDataTeam"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
