@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sqliteandgethhomework.Db.UserDataModel
 import com.example.sqliteandgethhomework.R
@@ -33,10 +34,6 @@ class UserDataBaseAdapter(
                 tvDataImageUrl.visibility = View.VISIBLE
                 imgDatabase.visibility = View.GONE
             }
-
-
-
-
         }
 
     }

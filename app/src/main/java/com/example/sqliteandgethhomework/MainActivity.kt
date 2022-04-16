@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sqliteandgethhomework.Adapter.UserAdapter
 import com.example.sqliteandgethhomework.ApiInterface.NewService.retrofitBulder
@@ -24,7 +25,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.rvUsers.layoutManager = LinearLayoutManager(this)
-        getMyData()
+
+            getMyData()
+
+
 
         binding.btnDatabase.setOnClickListener {
             val i = Intent(this, DataBaseActivity::class.java)
@@ -34,10 +38,7 @@ class MainActivity : AppCompatActivity() {
 //            for (i in dataList) {
 //                binding.tv.append("${i.dataName}  ${i.dataRealName}  ${i.dataTeam}  ${i.dataImageUrl}")
 //                binding.tv.append("\n")
-        myDbManager.openDb()
-        dataList = myDbManager.readDb().toMutableList()
-        adapter = UserAdapter(this@MainActivity, dataList)
-        binding.rvUsers.adapter = adapter
+
 
 
     }
@@ -74,6 +75,10 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         myDbManager.openDb()
+        myDbManager.openDb()
+        dataList = myDbManager.readDb().toMutableList()
+        adapter = UserAdapter(this@MainActivity, dataList)
+        binding.rvUsers.adapter = adapter
     }
 
     override fun onDestroy() {
