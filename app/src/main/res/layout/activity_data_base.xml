@@ -5,8 +5,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#CDEFCA"
     tools:context=".DataBaseActivity">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lyTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#91AC8A"
+            android:paddingHorizontal="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvDataName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvDataRealName"/>
+
+
+
+            <TextView
+                android:id="@+id/tvDataRealName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Real Name"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textStyle="italic"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvDataTeam"
+                app:layout_constraintStart_toEndOf="@id/tvDataName"/>
+
+            <TextView
+                android:id="@+id/tvDataTeam"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Avengers"
+                android:textColor="@color/black"
+                android:textStyle="italic"
+                android:gravity="center"
+                android:textSize="14sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvDataRealName"
+                app:layout_constraintEnd_toStartOf="@id/tvDataImageUrl"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvImgdatabase"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="10dp"
+                app:cardCornerRadius="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvDataTeam"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgDatabase"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/ic_launcher_background" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tvDataImageUrl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="image url"
+                android:textColor="@color/black"
+                android:textStyle="italic"
+                android:gravity="center"
+                android:textSize="14sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvDataTeam"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDataBase"
@@ -17,35 +104,35 @@
         android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btnCancel"/>
+        app:layout_constraintTop_toBottomOf="@id/lyTop"
+        app:layout_constraintBottom_toTopOf="@id/imgCancel"/>
 
-    <Button
-        android:id="@+id/btnAddUsers"
+    <ImageView
+        android:id="@+id/imgAddUsers"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Add users"
+        android:src="@drawable/ic_add"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-       app:layout_constraintEnd_toStartOf="@id/btnCancel"/>
+        app:layout_constraintEnd_toStartOf="@id/imgCancel"/>
 
-    <Button
-        android:id="@+id/btnCancel"
+    <ImageView
+        android:id="@+id/imgCancel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="cansel"
+        android:src="@drawable/ic_cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnAddUsers"/>
+        app:layout_constraintStart_toEndOf="@id/imgAddUsers"/>
 
-    <Button
-        android:id="@+id/btnSave"
+    <ImageView
+        android:id="@+id/imgSave"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="save"
+        android:src="@drawable/ic_save"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,13 +142,13 @@
         android:id="@+id/lyAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#B7E4E4E4"
+        android:background="#D2FFFFFF"
         android:padding="30dp"
         android:visibility="gone"
         android:layout_margin="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btnSave">
+        app:layout_constraintBottom_toTopOf="@id/imgSave">
 
         <EditText
             android:id="@+id/edName"
@@ -109,13 +196,13 @@
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/btnAddImg"/>
+            app:layout_constraintBottom_toTopOf="@id/imgAddImg"/>
 
-    <Button
-        android:id="@+id/btnAddImg"
+    <ImageView
+        android:id="@+id/imgAddImg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add img"
+        android:src="@drawable/ic_add_img"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 

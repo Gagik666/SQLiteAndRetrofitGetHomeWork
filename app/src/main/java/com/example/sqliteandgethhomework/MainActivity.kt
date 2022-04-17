@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sqliteandgethhomework.Adapter.UserAdapter
 import com.example.sqliteandgethhomework.ApiInterface.NewService.retrofitBulder

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#CDEFCA"
     tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -22,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:backgroundTint="#F4F2EE"
+        android:backgroundTint="#91AC8A"
         android:text="Data BAse"
         android:textColor="@color/black"
         android:textSize="20sp"

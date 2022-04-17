@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sqliteandgethhomework.Adapter.UserDataBaseAdapter
 import com.example.sqliteandgethhomework.Db.MyDb.dataList
@@ -27,13 +28,20 @@ class DataBaseActivity : AppCompatActivity() {
         dataAdapter = UserDataBaseAdapter(this, dataList)
         binding.rvDataBase.adapter = dataAdapter
 
-        binding.btnAddImg.setOnClickListener {
+        binding.imgAddImg.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
             startActivityForResult(intent, imageRecuestCode)
         }
 
-        binding.btnSave.setOnClickListener {
+        if (binding.edName.text.toString() == ""
+            && binding.edRealName.text.toString() == ""
+            && binding.edTeam.text.toString() == "")
+            Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
+        else
+            binding.imgSave.isClickable
+
+        binding.imgSave.setOnClickListener {
 
             myDbManager.openDb()
             dataList = myDbManager.readDb().toMutableList()
@@ -44,22 +52,23 @@ class DataBaseActivity : AppCompatActivity() {
                 tempImgUri
             )
 
-            binding.btnSave.visibility = View.GONE
+            binding.imgSave.visibility = View.GONE
             binding.lyAdd.visibility = View.GONE
-            binding.btnAddUsers.visibility = View.VISIBLE
-            binding.btnCancel.visibility = View.VISIBLE
+            binding.imgAddUsers.visibility = View.VISIBLE
+            binding.imgCancel.visibility = View.VISIBLE
             addUser()
             finish()
         }
 
-        binding.btnAddUsers.setOnClickListener {
+
+        binding.imgAddUsers.setOnClickListener {
             binding.lyAdd.visibility = View.VISIBLE
-            binding.btnSave.visibility = View.VISIBLE
-            binding.btnAddUsers.visibility = View.GONE
-            binding.btnCancel.visibility = View.GONE
+            binding.imgSave.visibility = View.VISIBLE
+            binding.imgAddUsers.visibility = View.GONE
+            binding.imgCancel.visibility = View.GONE
         }
 
-        binding.btnCancel.setOnClickListener {
+        binding.imgCancel.setOnClickListener {
             finish()
         }
 
